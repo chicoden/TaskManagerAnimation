@@ -20,6 +20,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="README.md" />
+    <None Include="..\README.md">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
