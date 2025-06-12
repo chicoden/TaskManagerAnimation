@@ -6,11 +6,17 @@
         <meta charset="utf-8"/>
     </head>
     <body>
-        <label for="width-slider">Width: </label>
-        <input id="width-slider" type="range" min="1" max="32" step="1" value="8"/><br/>
+        <div>
+            <label for="width-slider">Width: </label>
+            <input id="width-slider" type="range" min="1" max="32" step="1" value="8"/>
+            <span id="width-value"></span>
+        </div>
 
-        <label for="height-slider">Height: </label>
-        <input id="height-slider" type="range" min="1" max="32" step="1" value="4"/><br/>
+        <div>
+            <label for="height-slider">Height: </label>
+            <input id="height-slider" type="range" min="1" max="32" step="1" value="4"/>
+            <span id="height-value"></span>
+        </div>
 
         <p>
             Press enter to commit a change to the currently selected frame<br/>

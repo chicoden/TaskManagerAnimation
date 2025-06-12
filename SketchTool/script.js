@@ -2,15 +2,19 @@ const CELL_SIZE = 100;
 const PREVIEW_HEIGHT = 100;
 const CELL_COLOR = "skyblue";
 
+let frames_container = document.getElementById("frames-preview");
+let canvas = document.getElementById("sketch-area");
+let ctx = canvas.getContext("2d");
+
 let width_slider = document.getElementById("width-slider");
 let height_slider = document.getElementById("height-slider");
-let canvas = document.getElementById("sketch-area");
-let frames_container = document.getElementById("frames-preview");
+let width_value = document.getElementById("width-value");
+let height_value = document.getElementById("height-value");
+width_value.innerText = width_slider.value;
+height_value.innerText = height_slider.value;
 
 let grid_width = parseInt(width_slider.value);
 let grid_height = parseInt(height_slider.value);
-
-let ctx = canvas.getContext("2d");
 canvas.width = grid_width * CELL_SIZE;
 canvas.height = grid_height * CELL_SIZE;
 
@@ -121,9 +125,11 @@ function draw_frame(ctx, frame) {
     }
 }
 
-width_slider.addEventListener("change", function (event) {
+width_slider.addEventListener("input", function (event) {
     let old_grid_width = grid_width;
     grid_width = parseInt(event.target.value);
+    width_value.innerText = event.target.value;
+
     if (grid_width < old_grid_width) {
         for (let i = 0; i < cur_frame.length; i++) {
             cur_frame[i] = cur_frame[i].slice(0, grid_width);
@@ -141,9 +147,11 @@ width_slider.addEventListener("change", function (event) {
     draw_frame(ctx, cur_frame);
 });
 
-height_slider.addEventListener("change", function (event) {
+height_slider.addEventListener("input", function (event) {
     let old_grid_height = grid_height;
     grid_height = parseInt(event.target.value);
+    height_value.innerText = event.target.value;
+
     if (grid_height < old_grid_height) {
         cur_frame = cur_frame.slice(0, grid_height);
     } else {
