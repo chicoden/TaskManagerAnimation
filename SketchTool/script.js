@@ -74,18 +74,23 @@ function delete_frame() {
 }
 
 function save_animation() {
-    let patterns = new Int64Array(frames.length);
+    let patterns = new BigInt64Array(frames.length);
     for (let i = 0; i < frames.length; i++) {
-        let j = 0;
+        let j = 0n;
         for (let row of frames[i]) {
             for (let bit of row) {
-                patterns[i] |= bit << j++;
+                patterns[i] |= BigInt(bit) << j++;
             }
         }
     }
 
-    let code = "{\n" + patterns.map((pattern) => pattern.toString(16).toUpperCase().padStart(16, "0")).join(",\n    "); + "\n}";
-    navigator.clipboard.writeText(code).then(() => alert("Saved to clipboard!");
+    let code = "{\n    0x" + patterns[0].toString(16).toUpperCase().padStart(16, "0");
+    for (let i = 1; i < patterns.length; i++) {
+        code += ",\n    0x" + patterns[i].toString(16).toUpperCase().padStart(16, "0");
+    }
+
+    code += "\n}";
+    navigator.clipboard.writeText(code).then(() => alert("Saved to clipboard!"));
 }
 
 function set_preview_dimensions(preview_canvas) {
