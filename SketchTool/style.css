@@ -1,3 +1,17 @@
 canvas {
     background: black;
 }
+
+#frames-preview {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+#frames-preview > canvas {
+    border-radius: 4px;
+}
+
+canvas.selected {
+    border: 2px solid orange;
+}

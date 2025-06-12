@@ -7,18 +7,20 @@
     </head>
     <body>
         <label for="width-slider">Width: </label>
-        <input id="width-slider" type="range" min="1" max="64" step="1" value="8"/><br/>
+        <input id="width-slider" type="range" min="1" max="32" step="1" value="8"/><br/>
 
         <label for="height-slider">Height: </label>
-        <input id="height-slider" type="range" min="1" max="64" step="1" value="4"/><br/>
+        <input id="height-slider" type="range" min="1" max="32" step="1" value="4"/><br/>
 
         <p>
             Press enter to commit a change to the currently selected frame<br/>
-            Press + to insert a new frame after the currently selected frame and select it<br/>
+            Press ] to insert a new frame after the currently selected frame and select it<br/>
+            Press [ to insert a new frame before the currently selected frame and select it<br/>
             Press - to delete the currently selected frame and select the next frame<br/>
-            Press ctrl+z to undo a change<br/>
-            Press ctrl+shift+z to redo a change<br/>
-            Click and drag frames around to change the order<br/>
+            Press left and right arrow keys to select adjacent frames<br/>
+            <!--Press ctrl+z to undo a change<br/>-->
+            <!--Press ctrl+shift+z to redo a change<br/>-->
+            Press ctrl+s to save the current animation to the clipboard<br/>
         </p>
 
         <canvas id="sketch-area"></canvas>
