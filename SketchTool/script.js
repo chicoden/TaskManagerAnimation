@@ -78,7 +78,7 @@ function delete_frame() {
 }
 
 function save_animation() {
-    let patterns = new BigInt64Array(frames.length);
+    let patterns = new BigUint64Array(frames.length);
     for (let i = 0; i < frames.length; i++) {
         let j = 0n;
         for (let row of frames[i]) {
